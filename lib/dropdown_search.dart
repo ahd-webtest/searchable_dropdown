@@ -190,8 +190,13 @@ class DropdownSearch<T> extends StatefulWidget {
   ///set properties of popup safe area
   final PopupSafeArea popupSafeArea;
 
+  final double elevation ;
+    
+  final int maxline;
   DropdownSearch({
     Key? key,
+    this.elevation = 8,
+    this.maxline = 1,
     this.onSaved,
     this.validator,
     this.autoValidateMode = AutovalidateMode.disabled,
@@ -296,7 +301,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
                   _selectedItemAsString(data),
                 )
               : Text(_selectedItemAsString(data),
-                  style: Theme.of(context).textTheme.subtitle1),
+                  style: Theme.of(context).textTheme.subtitle1,maxLines:widget.maxline),
         ),
         if (!widget.showAsSuffixIcons) _manageTrailingIcons(data),
       ],
@@ -471,7 +476,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
         color: widget.popupBackgroundColor,
         context: context,
         position: position,
-        elevation: 8,
+        elevation: widget.elevation,
         items: [
           CustomPopupMenuItem(
             enabled: false,
