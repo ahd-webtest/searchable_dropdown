@@ -193,8 +193,12 @@ class DropdownSearch<T> extends StatefulWidget {
   final double elevation ;
     
   final int maxline;
+    
+    final TextOverflow textOverflow;
+    
   DropdownSearch({
     Key? key,
+      this.textOverflow,
     this.elevation = 8,
     this.maxline = 1,
     this.onSaved,
@@ -301,7 +305,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
                   _selectedItemAsString(data),
                 )
               : Text(_selectedItemAsString(data),
-                  style: Theme.of(context).textTheme.subtitle1,maxLines:widget.maxline),
+                  style: Theme.of(context).textTheme.subtitle1,maxLines:widget.maxline,softWrap: false,overflow: widget.textOverflow,),
         ),
         if (!widget.showAsSuffixIcons) _manageTrailingIcons(data),
       ],
