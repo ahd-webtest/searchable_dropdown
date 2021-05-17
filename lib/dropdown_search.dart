@@ -194,11 +194,11 @@ class DropdownSearch<T> extends StatefulWidget {
     
   final int maxline;
     
-    final TextOverflow textOverflow;
+  final textOverflow;
     
   DropdownSearch({
     Key? key,
-      this.textOverflow,
+    this.textOverflow,
     this.elevation = 8,
     this.maxline = 1,
     this.onSaved,
